@@ -2,6 +2,7 @@ package org.kifiukvasyl;
 
 import org.kifiukvasyl.Entity.Match;
 
+import javax.inject.Inject;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
@@ -11,6 +12,7 @@ import static org.kifiukvasyl.Printer.print;
 public class MenuScan {
     private final Scanner scanner;
 
+    @Inject
     public MenuScan(){
         this.scanner = new Scanner(System.in);
     }

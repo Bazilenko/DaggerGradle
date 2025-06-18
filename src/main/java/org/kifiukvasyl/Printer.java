@@ -2,6 +2,7 @@ package org.kifiukvasyl;
 
 import org.kifiukvasyl.Entity.Match;
 
+import javax.inject.Inject;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -22,6 +23,10 @@ public class Printer {
             """;
 
     private final String GAME_HEADER = " |GAME|" + " |RESULT|" + "|DATE|";
+
+    @Inject
+    public Printer() {
+    }
 
     public static void print(String string) {
         System.out.println(string);

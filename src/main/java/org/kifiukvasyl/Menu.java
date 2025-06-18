@@ -15,18 +15,19 @@ public class Menu {
     private List<Match> matches;
     private final MenuScan menuScan;
     private final Printer printer;
+    private final Jackson jackson;
 
     @Inject
-    public Menu(MenuScan menuScan, Printer printer){
+    public Menu(MenuScan menuScan, Printer printer, Jackson jackson){
         this.scanner = new Scanner(System.in);
         this.matches = new ArrayList<>();
         this.menuScan = menuScan;
         this.printer = printer;
+        this.jackson = jackson;
     }
 
     public void menu() {
         String command;
-        Jackson jackson = new Jackson();
         matches = jackson.readFromFile("matchesInfo");
 
         do {

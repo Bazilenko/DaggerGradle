@@ -1,5 +1,7 @@
 package org.kifiukvasyl;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import dagger.Module;
 import dagger.Provides;
 
@@ -11,7 +13,9 @@ public class AppModule {
 
     @Singleton
     @Provides
-    public Menu provideMenu(MenuScan menuScan, Printer printer){
-        return new Menu(menuScan, printer);
+    public ObjectMapper provideObjectMapper() {
+        var objectMapper = new ObjectMapper();
+        objectMapper.registerModule(new JavaTimeModule());
+        return objectMapper;
     }
 }

@@ -2,19 +2,19 @@ package org.kifiukvasyl;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.kifiukvasyl.Entity.Match;
 
+import javax.inject.Inject;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Jackson {
-    ObjectMapper mapper;
+    private final ObjectMapper mapper;
 
-    public Jackson() {
-        mapper = new ObjectMapper();
-        mapper.registerModule(new JavaTimeModule());
+    @Inject
+    public Jackson(ObjectMapper mapper) {
+        this.mapper = mapper;
     }
 
     public String serialization(List<Match> matches) {
