@@ -56,6 +56,8 @@ public class Menu {
                 case "4" -> {
                     matches.add(menuScan.createMatch());
                 }
+                case "exit" ->
+                    System.out.println("Exiting...");
                 default -> print("Invalid command!");
 
             }
